@@ -1,0 +1,12 @@
+{
+  "name": "HolaMundo",
+  "displayName": "HolaMundo",
+  "expo": {
+    "name": "HolaMundo",
+    "slug": "HolaMundo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
