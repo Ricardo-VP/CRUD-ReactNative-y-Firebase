@@ -6,10 +6,16 @@ import {createStackNavigator} from '@react-navigation/stack'
 
 const Stack = createStackNavigator()
 
+import UsersList from './screens/UserList'
+import CreateUserScreen from './screens/CreateUserScreen'
+import UserDetailScreen from './screens/UserDetailScreen'
+
 function myStack(){
   return(
     <Stack.Navigator>
-      <Stack.Screen/>
+      <Stack.Screen component={UsersList} />
+      <Stack.Screen component={CreateUserScreen} />
+      <Stack.Screen component={UserDetailScreen} />
     </Stack.Navigator>
   );
 }
