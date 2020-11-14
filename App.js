@@ -10,20 +10,20 @@ import UsersList from './screens/UserList'
 import CreateUserScreen from './screens/CreateUserScreen'
 import UserDetailScreen from './screens/UserDetailScreen'
 
-function myStack(){
+function MyStack(){
   return(
     <Stack.Navigator>
-      <Stack.Screen component={UsersList} />
-      <Stack.Screen component={CreateUserScreen} />
-      <Stack.Screen component={UserDetailScreen} />
+      <Stack.Screen name="CreateUserScreen" component={CreateUserScreen} />
+      <Stack.Screen name="UserList" component={UsersList} />
+      <Stack.Screen name="UserDetailScreen" component={UserDetailScreen} />
     </Stack.Navigator>
-  );
+  )
 }
 
 export default function App() {
   return (
     <NavigationContainer>
-
+      <MyStack/>
     </NavigationContainer>
   );
 }
