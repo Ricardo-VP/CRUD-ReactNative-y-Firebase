@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import {View, Button, TextInput, ScrollView, StyleSheet} from 'react-native'
+import firebase from '../database/firebase'
 
-const CreateUserScreeen = () => {
+const CreateUserScreeen = (props) => {
 
     const [state, setstate] = useState({
         name: '',
@@ -12,7 +13,20 @@ const CreateUserScreeen = () => {
     const handleChangeText = (name, value) =>{
         setstate({...state, [name]: value})
     };
- 
+    
+    const SaveNewUser = async () =>{
+        if(state.name === ''||state.email === ''|| state.phone === '' ){
+            alert('Por favor rellena todos los campos')
+        }else{
+            await firebase.db.collection('users').add({
+                name: state.name,
+                email: state.email,
+                phone: state.phone
+            })
+            props.navigation.navigate('UserList');
+        }
+    }
+
     return (
         <ScrollView style={styles.container}>
             <View style={styles.inputGroup}>
@@ -34,7 +48,7 @@ const CreateUserScreeen = () => {
             </View>
 
             <View style={styles.inputGroup}>
-                <Button title="Guardar usuario" onPress={()=> console.log(state)}/> 
+                <Button title="Guardar usuario" onPress={()=> SaveNewUser()}/> 
             </View>
         </ScrollView>
     )
