@@ -32,7 +32,9 @@ const UsersList = (props) => {
                     return(
                         <ListItem
                             key={user.id} bottomDivider onPress={()=> {
-                                props.navigation.navigate('UserDetailScreen')
+                                props.navigation.navigate('UserDetailScreen', {
+                                    userId: user.id
+                                })
                             }}
                         >
                             <ListItem.Chevron/>
